@@ -16,7 +16,7 @@ jobs:
   ring0-stamp1-su2:
     name: ring0-stamp1-su2
     runs-on: ubuntu-latest
-    #needs: ring0-stamp1-su1
+    needs: ring0-stamp1-su1
     environment:
       name: ring0.stamp1.su2
       url: "https://google.com"
@@ -27,7 +27,7 @@ jobs:
   ring0-stamp1-su3:
     name: ring0-stamp1-su3
     runs-on: ubuntu-latest
-    #needs: ring0-stamp1-su1
+    needs: [ring0-stamp1-su1, ring0-stamp1-su2]
     environment:
       name: ring0.stamp1.su3
       url: "https://google.com"
@@ -38,7 +38,7 @@ jobs:
   ring0-stamp1-su4:
     name: ring0-stamp1-su4
     runs-on: ubuntu-latest
-    #needs: ring0-stamp1-su1
+    needs: [ring0-stamp1-su1, ring0-stamp1-su2, ring0-stamp1-su3]
     environment:
       name: ring0.stamp1.su4
       url: "https://google.com"
@@ -49,7 +49,14 @@ jobs:
   ring0-stamp1-su5:
     name: ring0-stamp1-su5
     runs-on: ubuntu-latest
-    #needs: ring0-stamp1-cluster04
+    needs:
+      [
+        ring0-stamp1-su1,
+        ring0-stamp1-su2,
+        ring0-stamp1-su3,
+        ring0-stamp1-su4,
+        ring0-stamp1-su5,
+      ]
     environment:
       name: ring0.stamp1.su5
       url: "https://google.com"
@@ -60,14 +67,7 @@ jobs:
   ring1-stamp1-su1:
     name: ring1-stamp1-su1
     runs-on: ubuntu-latest
-    needs:
-      [
-        ring0-stamp1-su1,
-        ring0-stamp1-su2,
-        ring0-stamp1-su3,
-        ring0-stamp1-su4,
-        ring0-stamp1-su5,
-      ]
+    needs: [ring0-stamp1-su5]
     environment:
       name: ring1.stamp1.su1
       url: "https://google.com"
@@ -78,14 +78,7 @@ jobs:
   ring1-stamp1-su2:
     name: ring1-stamp1-su2
     runs-on: ubuntu-latest
-    needs:
-      [
-        ring0-stamp1-su1,
-        ring0-stamp1-su2,
-        ring0-stamp1-su3,
-        ring0-stamp1-su4,
-        ring0-stamp1-su5,
-      ]
+    needs: [ring1-stamp1-su1]
     environment:
       name: ring1.stamp1.su2
       url: "https://google.com"
@@ -96,14 +89,7 @@ jobs:
   ring1-stamp1-su3:
     name: ring1-stamp1-su3
     runs-on: ubuntu-latest
-    needs:
-      [
-        ring0-stamp1-su1,
-        ring0-stamp1-su2,
-        ring0-stamp1-su3,
-        ring0-stamp1-su4,
-        ring0-stamp1-su5,
-      ]
+    needs: [ring1-stamp1-su1, ring1-stamp1-su2]
     environment:
       name: ring1.stamp1.su3
       url: "https://google.com"
@@ -114,14 +100,7 @@ jobs:
   ring1-stamp1-su4:
     name: ring1-stamp1-su4
     runs-on: ubuntu-latest
-    needs:
-      [
-        ring0-stamp1-su1,
-        ring0-stamp1-su2,
-        ring0-stamp1-su3,
-        ring0-stamp1-su4,
-        ring0-stamp1-su5,
-      ]
+    needs: [ring1-stamp1-su1, ring1-stamp1-su2, ring1-stamp1-su3]
     environment:
       name: ring1.stamp1.su4
       url: "https://google.com"
@@ -133,13 +112,7 @@ jobs:
     name: ring1-stamp1-su5
     runs-on: ubuntu-latest
     needs:
-      [
-        ring0-stamp1-su1,
-        ring0-stamp1-su2,
-        ring0-stamp1-su3,
-        ring0-stamp1-su4,
-        ring0-stamp1-su5,
-      ]
+      [ring1-stamp1-su1, ring1-stamp1-su2, ring1-stamp1-su3, ring1-stamp1-su4]
     environment:
       name: ring1.stamp1.su5
       url: "https://google.com"
