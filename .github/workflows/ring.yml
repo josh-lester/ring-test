@@ -50,13 +50,7 @@ jobs:
     name: ring0-stamp1-su5
     runs-on: ubuntu-latest
     needs:
-      [
-        ring0-stamp1-su1,
-        ring0-stamp1-su2,
-        ring0-stamp1-su3,
-        ring0-stamp1-su4,
-        ring0-stamp1-su5,
-      ]
+      [ring0-stamp1-su1, ring0-stamp1-su2, ring0-stamp1-su3, ring0-stamp1-su4]
     environment:
       name: ring0.stamp1.su5
       url: "https://google.com"
