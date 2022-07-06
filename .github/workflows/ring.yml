@@ -58,7 +58,7 @@ jobs:
         run: echo ring0-stamp1-su5
 
   ring1-stamp1-su1:
-    name: ring1-stamp1-cluster01
+    name: ring1-stamp1-su1
     runs-on: ubuntu-latest
     needs:
       [
