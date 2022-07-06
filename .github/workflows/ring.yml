@@ -1,0 +1,113 @@
+name: ring deploy
+on:
+  workflow_dispatch:
+
+jobs:
+  ring0-stamp1-cluster01:
+    name: ring0-stamp1-cluster01
+    runs-on: ubuntu-latest
+    environment:
+      name: ring0.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring0-stamp1-cluster01
+
+  ring0-stamp1-cluster02:
+    name: ring0-stamp1-cluster02
+    runs-on: ubuntu-latest
+    needs: ring0-stamp1-cluster01
+    environment:
+      name: ring0.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring0-stamp1-cluster02
+
+  ring0-stamp1-cluster03:
+    name: ring0-stamp1-cluster03
+    runs-on: ubuntu-latest
+    needs: ring0-stamp1-cluster02
+    environment:
+      name: ring0.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring0-stamp1-cluster01
+
+  ring0-stamp1-cluster04:
+    name: ring0-stamp1-cluster04
+    runs-on: ubuntu-latest
+    needs: ring0-stamp1-cluster03
+    environment:
+      name: ring0.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring0-stamp1-cluster02
+
+  ring0-stamp1-cluster05:
+    name: ring0-stamp1-cluster05
+    runs-on: ubuntu-latest
+    needs: ring0-stamp1-cluster04
+    environment:
+      name: ring0.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring0-stamp1-cluster02
+
+  ring1-stamp1-cluster01:
+    name: ring1-stamp1-cluster01
+    runs-on: ubuntu-latest
+    needs: [ring0-stamp1-cluster01, ring0-stamp1-cluster02, ring0-stamp1-cluster03, ring0-stamp1-cluster04, ring0-stamp1-cluster05]
+    environment:
+      name: ring1.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring1-stamp1-cluster01
+
+  ring1-stamp1-cluster02:
+    name: ring1-stamp1-cluster02
+    runs-on: ubuntu-latest
+    needs: ring1-stamp1-cluster01
+    environment:
+      name: ring1.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring1-stamp1-cluster02
+
+  ring1-stamp1-cluster03:
+    name: ring1-stamp1-cluster03
+    runs-on: ubuntu-latest
+    needs: ring1-stamp1-cluster02
+    environment:
+      name: ring1.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring1-stamp1-cluster01
+
+  ring1-stamp1-cluster04:
+    name: ring1-stamp1-cluster04
+    runs-on: ubuntu-latest
+    needs: ring1-stamp1-cluster03
+    environment:
+      name: ring1.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring1-stamp1-cluster02
+
+  ring1-stamp1-cluster05:
+    name: ring1-stamp1-cluster05
+    runs-on: ubuntu-latest
+    needs: ring1-stamp1-cluster04
+    environment:
+      name: ring1.stamp1
+      url: ""
+    steps:
+      - name: run
+        run: echo ring1-stamp1-cluster02
