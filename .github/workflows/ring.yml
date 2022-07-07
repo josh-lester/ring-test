@@ -26,7 +26,7 @@ jobs:
         run: echo ring0-stamp1-su2
 
   ring0-stamp1-su3:
-    if: ${{ ring0-stamp1-su2.conclusion == 'success'}}
+    if: ${{ jobs.ring0-stamp1-su2.conclusion == 'success'}}
     name: ring0-stamp1-su3
     runs-on: ubuntu-latest
     needs: [ring0-stamp1-su1]
@@ -39,7 +39,7 @@ jobs:
         run: echo ring0-stamp1-su3
 
   ring0-stamp1-su4:
-    if: ${{ ring0-stamp1-su4.conclusion == 'success'}}
+    if: ${{ jobs.ring0-stamp1-su4.conclusion == 'success'}}
     name: ring0-stamp1-su4
     runs-on: ubuntu-latest
     needs: [ring0-stamp1-su1]
