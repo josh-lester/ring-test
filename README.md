@@ -1,3 +1,1 @@
 # ring-test
-
-should work
